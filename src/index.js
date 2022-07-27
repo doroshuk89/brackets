@@ -16,10 +16,9 @@ module.exports = function check(str, bracketsConfig) {
     for (let i = 0; i < arrStr.length; i++) {
       let indexElem =  indexBrackets (arrStr[i]);
       if(indexElem % 2 === 0) {
+          // Проверка если есть одинаковые значения для скобок (пример '||', '1,1', '#, #')
           if(arrStr[i] === brackets[indexElem +1]  && stack[stack.length-1] === arrStr[i]) {
             stack.pop();
-          }else if (arrStr[i] === brackets[indexElem + 1] && stack[stack.length-1] !== arrStr[i]) {
-            stack.push(arrStr[i]);
           }else {
             stack.push(arrStr[i]);
           }
